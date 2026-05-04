@@ -270,13 +270,127 @@
       z-index: -1;
     }
 
-    .hero-image {
+    .hero-carousel {
+      position: relative;
       min-height: 470px;
       border-radius: 26px;
-      background:
-        linear-gradient(to bottom, rgba(5, 7, 17, 0.03), rgba(5, 7, 17, 0.35)),
-        url("./assets/cyberpunk-banner.png") center / cover;
+      overflow: hidden;
       border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .hero-carousel-track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.55s cubic-bezier(.2,.8,.2,1);
+    }
+
+    .hero-slide {
+      min-width: 100%;
+      height: 470px;
+      position: relative;
+    }
+
+    .hero-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: saturate(1.04) contrast(1.02);
+    }
+
+    .hero-slide::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to top, rgba(7, 9, 18, 0.84), rgba(7, 9, 18, 0.16)),
+        linear-gradient(to right, rgba(7, 9, 18, 0.22), transparent 38%);
+    }
+
+    .hero-slide-caption {
+      position: absolute;
+      left: 24px;
+      right: 24px;
+      bottom: 26px;
+      z-index: 2;
+      padding: 16px 18px;
+      border-radius: 18px;
+      backdrop-filter: blur(16px);
+      background: rgba(7, 9, 18, 0.52);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .hero-slide-caption span {
+      display: block;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.78rem;
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 6px;
+    }
+
+    .hero-slide-caption strong {
+      display: block;
+      font-size: 1.05rem;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+
+    .hero-carousel-controls {
+      position: absolute;
+      right: 18px;
+      top: 18px;
+      z-index: 3;
+      display: flex;
+      gap: 10px;
+    }
+
+    .hero-carousel-button {
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(7,9,18,0.66);
+      color: var(--text);
+      cursor: pointer;
+      font-size: 1.3rem;
+      line-height: 1;
+      backdrop-filter: blur(14px);
+      transition: 0.2s ease;
+    }
+
+    .hero-carousel-button:hover {
+      transform: translateY(-2px);
+      border-color: rgba(0,245,255,0.55);
+      box-shadow: 0 12px 34px rgba(0,245,255,0.14);
+    }
+
+    .hero-carousel-dots {
+      position: absolute;
+      left: 24px;
+      top: 24px;
+      z-index: 3;
+      display: flex;
+      gap: 8px;
+    }
+
+    .hero-carousel-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      border: 0;
+      background: rgba(255,255,255,0.22);
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .hero-carousel-dot.active {
+      width: 30px;
+      background: linear-gradient(90deg, var(--cyan), var(--magenta));
+      box-shadow: 0 0 24px rgba(0,245,255,0.28);
     }
 
     .status-panel {
@@ -702,8 +816,10 @@
         grid-template-columns: 1fr;
       }
 
-      .hero-image {
+      .hero-carousel,
+      .hero-slide {
         min-height: 390px;
+        height: 390px;
       }
 
       .section-head {
@@ -745,8 +861,27 @@
         padding-top: 48px;
       }
 
-      .hero-image {
-        min-height: 310px;
+      .hero-carousel,
+      .hero-slide {
+        min-height: 320px;
+        height: 320px;
+      }
+
+      .hero-slide-caption {
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+        padding: 14px;
+      }
+
+      .hero-carousel-dots {
+        left: 16px;
+        top: 16px;
+      }
+
+      .hero-carousel-controls {
+        right: 16px;
+        top: 16px;
       }
 
       .status-panel {
@@ -800,10 +935,40 @@
           </div>
         </div>
 
-        <div class="hero-card" aria-label="Cyberpunk portfolio visual">
-          <div class="hero-image"></div>
-          <div class="status-panel">
-            <p><strong>Focus:</strong> Software Engineering, Full-Stack & Mobile Development, Applied AI, LLMs, Software Testing, Automation, and Developer Tools.</p>
+        <div class="hero-card" aria-label="Portfolio visual carousel">
+          <div class="hero-carousel" aria-label="Hero image carousel">
+            <div class="hero-carousel-track" id="heroCarouselTrack">
+              <div class="hero-slide">
+                <img src="./assets/cyberpunk-banner.png" alt="Cyberpunk illustration of Joselito Júnior coding in a neon city" />
+                <div class="hero-slide-caption">
+                  <span>Software Engineer</span>
+                  <strong>Building reliable digital systems.</strong>
+                </div>
+              </div>
+
+              <div class="hero-slide">
+                <img src="./assets/hero-gaming.png" alt="Joselito Júnior gaming illustration" />
+                <div class="hero-slide-caption">
+                  <span>Beyond code</span>
+                  <strong>Creative, focused, and tech-driven.</strong>
+                </div>
+              </div>
+
+              <div class="hero-slide">
+                <img src="./assets/hero-meeting.png" alt="Joselito Júnior in a professional meeting illustration" />
+                <div class="hero-slide-caption">
+                  <span>Collaboration</span>
+                  <strong>Communication, leadership, and teamwork.</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-carousel-dots" id="heroCarouselDots" aria-label="Hero carousel pagination"></div>
+
+            <div class="hero-carousel-controls">
+              <button class="hero-carousel-button" id="heroPrevSlide" type="button" aria-label="Previous hero slide">‹</button>
+              <button class="hero-carousel-button" id="heroNextSlide" type="button" aria-label="Next hero slide">›</button>
+            </div>
           </div>
         </div>
       </div>
@@ -1246,6 +1411,56 @@
     prevButton.addEventListener("click", prevSlide);
     updateCarousel();
     restartCarouselTimer();
+
+    const heroTrack = document.getElementById("heroCarouselTrack");
+    const heroSlides = Array.from(document.querySelectorAll(".hero-slide"));
+    const heroDotsContainer = document.getElementById("heroCarouselDots");
+    const heroPrevButton = document.getElementById("heroPrevSlide");
+    const heroNextButton = document.getElementById("heroNextSlide");
+    let heroCurrentSlide = 0;
+    let heroCarouselTimer;
+
+    heroSlides.forEach((_, index) => {
+      const dot = document.createElement("button");
+      dot.className = "hero-carousel-dot";
+      dot.type = "button";
+      dot.setAttribute("aria-label", `Go to hero slide ${index + 1}`);
+      dot.addEventListener("click", () => heroGoToSlide(index));
+      heroDotsContainer.appendChild(dot);
+    });
+
+    const heroDots = Array.from(document.querySelectorAll(".hero-carousel-dot"));
+
+    function heroUpdateCarousel() {
+      heroTrack.style.transform = `translateX(-${heroCurrentSlide * 100}%)`;
+      heroDots.forEach((dot, index) => {
+        dot.classList.toggle("active", index === heroCurrentSlide);
+      });
+    }
+
+    function heroGoToSlide(index) {
+      heroCurrentSlide = (index + heroSlides.length) % heroSlides.length;
+      heroUpdateCarousel();
+      heroRestartCarouselTimer();
+    }
+
+    function heroNextSlide() {
+      heroGoToSlide(heroCurrentSlide + 1);
+    }
+
+    function heroPrevSlide() {
+      heroGoToSlide(heroCurrentSlide - 1);
+    }
+
+    function heroRestartCarouselTimer() {
+      clearInterval(heroCarouselTimer);
+      heroCarouselTimer = setInterval(heroNextSlide, 5000);
+    }
+
+    heroNextButton.addEventListener("click", heroNextSlide);
+    heroPrevButton.addEventListener("click", heroPrevSlide);
+    heroUpdateCarousel();
+    heroRestartCarouselTimer();
   </script>
 </body>
 </html>
