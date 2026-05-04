@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Joselito Júnior, Software Engineer focused on Full-Stack, Mobile, Applied AI, LLMs, Software Testing, Automation, and Developer Tools." />
+  <meta name="author" content="Joselito Júnior" />
+  <title>Joselito Júnior | Software Engineer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #070912;
+      --bg-soft: #0d1020;
+      --card: rgba(14, 18, 35, 0.78);
+      --card-strong: rgba(18, 23, 45, 0.94);
+      --text: #f4f7fb;
+      --muted: #a9b4c7;
+      --muted-2: #78849c;
+      --line: rgba(148, 163, 184, 0.18);
+      --cyan: #00f5ff;
+      --cyan-soft: rgba(0, 245, 255, 0.14);
+      --magenta: #ff2bd6;
+      --magenta-soft: rgba(255, 43, 214, 0.14);
+      --purple: #8b5cf6;
+      --purple-soft: rgba(139, 92, 246, 0.18);
+      --green: #00ffc6;
+      --yellow: #f8e16c;
+      --shadow: 0 24px 90px rgba(0, 0, 0, 0.45);
+      --radius: 26px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(0, 245, 255, 0.16), transparent 32%),
+        radial-gradient(circle at 82% 4%, rgba(255, 43, 214, 0.15), transparent 34%),
+        radial-gradient(circle at 60% 70%, rgba(139, 92, 246, 0.12), transparent 34%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.72), transparent 78%);
+      z-index: -2;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(100% - 40px, var(--max));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: rgba(7, 9, 18, 0.72);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+      gap: 22px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      background: linear-gradient(135deg, var(--cyan), var(--magenta));
+      box-shadow: 0 0 35px rgba(0, 245, 255, 0.22), 0 0 38px rgba(255, 43, 214, 0.18);
+      color: #050711;
+      font-family: "JetBrains Mono", monospace;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      padding: 9px 12px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .hero {
+      padding: 74px 0 34px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.06fr 0.94fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 13px;
+      border: 1px solid rgba(0, 245, 255, 0.26);
+      border-radius: 999px;
+      background: rgba(0, 245, 255, 0.08);
+      color: #c9fbff;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.84rem;
+      margin-bottom: 18px;
+    }
+
+    .pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--green);
+      box-shadow: 0 0 20px var(--green);
+    }
+
+    h1 {
+      font-size: clamp(3rem, 8vw, 6.7rem);
+      line-height: 0.9;
+      letter-spacing: -0.075em;
+      margin: 0 0 22px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #fff, #c8fbff 38%, #ffb4ef 72%, #fff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.08rem, 1.5vw, 1.32rem);
+      color: var(--muted);
+      max-width: 680px;
+      margin: 0 0 26px;
+    }
+
+    .hero-subtitle strong {
+      color: var(--text);
+      font-weight: 800;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin: 30px 0 26px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 999px;
+      padding: 13px 19px;
+      font-weight: 850;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.055);
+      color: var(--text);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      border-color: rgba(0, 245, 255, 0.5);
+      box-shadow: 0 18px 60px rgba(0, 245, 255, 0.14);
+    }
+
+    .btn-primary {
+      color: #031016;
+      background: linear-gradient(90deg, var(--cyan), var(--green));
+      border: 0;
+      box-shadow: 0 18px 60px rgba(0, 245, 255, 0.18);
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      font-family: "JetBrains Mono", monospace;
+      color: #dbeafe;
+      background: rgba(255,255,255,0.055);
+      border: 1px solid var(--line);
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+    }
+
+    .hero-card {
+      position: relative;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.035));
+      border-radius: 36px;
+      padding: 14px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      background: linear-gradient(135deg, rgba(0,245,255,0.3), transparent 36%, rgba(255,43,214,0.28));
+      opacity: 0.6;
+      z-index: -1;
+    }
+
+    .hero-image {
+      min-height: 470px;
+      border-radius: 26px;
+      background:
+        linear-gradient(to bottom, rgba(5, 7, 17, 0.03), rgba(5, 7, 17, 0.35)),
+        url("./assets/cyberpunk-banner.png") center / cover;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .status-panel {
+      position: absolute;
+      left: 28px;
+      right: 28px;
+      bottom: 28px;
+      padding: 16px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 22px;
+      backdrop-filter: blur(18px);
+      background: rgba(7, 9, 18, 0.68);
+    }
+
+    .status-panel p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .status-panel strong {
+      color: var(--text);
+    }
+
+    section {
+      padding: 58px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 28px;
+      margin-bottom: 26px;
+    }
+
+    .section-kicker {
+      font-family: "JetBrains Mono", monospace;
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.78rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1;
+      letter-spacing: -0.06em;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 510px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: 0 18px 70px rgba(0, 0, 0, 0.18);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      right: -70px;
+      top: -80px;
+      background: radial-gradient(circle, rgba(0,245,255,0.22), transparent 64%);
+      pointer-events: none;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 1.12rem;
+      letter-spacing: -0.03em;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin: 0;
+      font-size: 0.98rem;
+    }
+
+    .icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      margin-bottom: 15px;
+      background: linear-gradient(135deg, var(--cyan-soft), var(--magenta-soft));
+      border: 1px solid rgba(255,255,255,0.1);
+      font-size: 1.15rem;
+    }
+
+    .portfolio-carousel {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(0,245,255,0.18);
+      border-radius: 34px;
+      background: linear-gradient(180deg, rgba(18,23,45,0.95), rgba(12,15,31,0.82));
+      box-shadow: var(--shadow);
+      margin-bottom: 28px;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.55s cubic-bezier(.2,.8,.2,1);
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      align-items: stretch;
+      padding: 18px;
+    }
+
+    .carousel-image-wrap {
+      min-height: 360px;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.1);
+      background:
+        radial-gradient(circle at 20% 20%, rgba(0,245,255,0.2), transparent 30%),
+        radial-gradient(circle at 80% 30%, rgba(255,43,214,0.18), transparent 30%),
+        rgba(255,255,255,0.04);
+    }
+
+    .carousel-image-wrap img {
+      width: 100%;
+      height: 100%;
+      min-height: 360px;
+      object-fit: cover;
+      filter: saturate(1.08) contrast(1.03);
+    }
+
+    .carousel-content {
+      padding: 24px 18px 24px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .carousel-label {
+      display: inline-flex;
+      width: fit-content;
+      margin-bottom: 12px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,245,255,0.24);
+      background: rgba(0,245,255,0.08);
+      color: var(--cyan);
+      font-family: "JetBrains Mono", monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .carousel-content h3 {
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      line-height: 0.96;
+      letter-spacing: -0.07em;
+      margin: 0 0 14px;
+    }
+
+    .carousel-content p {
+      color: var(--muted);
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .carousel-controls {
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+      display: flex;
+      gap: 10px;
+      z-index: 5;
+    }
+
+    .carousel-button {
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(7,9,18,0.7);
+      color: var(--text);
+      cursor: pointer;
+      font-size: 1.3rem;
+      line-height: 1;
+      backdrop-filter: blur(14px);
+      transition: 0.2s ease;
+    }
+
+    .carousel-button:hover {
+      transform: translateY(-2px);
+      border-color: rgba(0,245,255,0.55);
+      box-shadow: 0 12px 34px rgba(0,245,255,0.14);
+    }
+
+    .carousel-dots {
+      position: absolute;
+      left: 24px;
+      bottom: 28px;
+      display: flex;
+      gap: 8px;
+      z-index: 5;
+    }
+
+    .carousel-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      border: 0;
+      background: rgba(255,255,255,0.22);
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .carousel-dot.active {
+      width: 30px;
+      background: linear-gradient(90deg, var(--cyan), var(--magenta));
+      box-shadow: 0 0 24px rgba(0,245,255,0.28);
+    }
+
+    .project-card {
+      padding: 0;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(18,23,45,0.95), rgba(12,15,31,0.78));
+    }
+
+    .project-top {
+      padding: 20px 20px 0;
+    }
+
+    .project-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .project-type {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.72rem;
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .project-title {
+      font-size: 1.42rem;
+      line-height: 1.05;
+      margin: 0 0 10px;
+      letter-spacing: -0.05em;
+    }
+
+    .project-body {
+      padding: 0 20px 20px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 16px;
+    }
+
+    .pill {
+      padding: 6px 9px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 999px;
+      color: #d9e4f5;
+      font-size: 0.76rem;
+      font-family: "JetBrains Mono", monospace;
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 14px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 18px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--card);
+    }
+
+    .date {
+      font-family: "JetBrains Mono", monospace;
+      color: var(--cyan);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .timeline-item h3 {
+      margin: 0 0 6px;
+      font-size: 1.18rem;
+      letter-spacing: -0.035em;
+    }
+
+    .org {
+      margin: 0 0 12px;
+      color: var(--muted-2);
+      font-weight: 700;
+    }
+
+    ul.clean {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    ul.clean li {
+      margin: 7px 0;
+    }
+
+    .publication {
+      display: flex;
+      gap: 14px;
+      padding: 16px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .pub-year {
+      min-width: 58px;
+      color: var(--cyan);
+      font-family: "JetBrains Mono", monospace;
+      font-weight: 800;
+    }
+
+    .pub-title {
+      margin: 0;
+      color: var(--text);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .pub-venue {
+      margin: 3px 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .contact-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 22px;
+      padding: 28px;
+      border: 1px solid rgba(0,245,255,0.18);
+      background:
+        radial-gradient(circle at top right, rgba(255,43,214,0.14), transparent 38%),
+        radial-gradient(circle at bottom left, rgba(0,245,255,0.14), transparent 42%),
+        var(--card-strong);
+      border-radius: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-card h2 {
+      font-size: clamp(2rem, 4vw, 3.6rem);
+    }
+
+    .contact-card p {
+      color: var(--muted);
+      max-width: 700px;
+    }
+
+    footer {
+      padding: 28px 0 46px;
+      color: var(--muted-2);
+      text-align: center;
+      font-size: 0.92rem;
+    }
+
+    .mini-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 32px;
+      object-fit: cover;
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: 0 0 55px rgba(0,245,255,0.16), 0 0 55px rgba(255,43,214,0.14);
+    }
+
+    @media (max-width: 920px) {
+      .hero-grid,
+      .grid-3,
+      .grid-2,
+      .contact-card {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image {
+        min-height: 390px;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-head p {
+        margin-top: 12px;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+
+      .carousel-slide {
+        grid-template-columns: 1fr;
+      }
+
+      .carousel-content {
+        padding: 2px 4px 62px;
+      }
+
+      .carousel-image-wrap,
+      .carousel-image-wrap img {
+        min-height: 280px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container {
+        width: min(100% - 26px, var(--max));
+      }
+
+      .hero {
+        padding-top: 48px;
+      }
+
+      .hero-image {
+        min-height: 310px;
+      }
+
+      .status-panel {
+        left: 18px;
+        right: 18px;
+        bottom: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="Home">
+        <span class="brand-mark">JJ</span>
+        <span>Joselito Júnior</span>
+      </a>
+      <div class="nav-links" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow"><span class="pulse"></span> Open to Software Engineering roles</div>
+          <h1><span class="gradient-text">Software Engineer</span><br />building reliable digital systems.</h1>
+          <p class="hero-subtitle">
+            I build <strong>full-stack and mobile software systems</strong> that integrate software engineering, automation, applied AI, and software testing to improve software quality, developer productivity, and real-world digital services.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">View projects</a>
+            <a class="btn" href="https://github.com/joselitojunior94" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="btn" href="https://www.linkedin.com/in/joselito-j%C3%BAnior-82b742218" target="_blank" rel="noreferrer">LinkedIn</a>
+          </div>
+
+          <div class="tag-row" aria-label="Core skills">
+            <span class="tag">Full-Stack</span>
+            <span class="tag">Mobile</span>
+            <span class="tag">Applied AI</span>
+            <span class="tag">LLMs</span>
+            <span class="tag">Software Testing</span>
+            <span class="tag">Developer Tools</span>
+          </div>
+        </div>
+
+        <div class="hero-card" aria-label="Cyberpunk portfolio visual">
+          <div class="hero-image"></div>
+          <div class="status-panel">
+            <p><strong>Focus:</strong> Software Engineering, Full-Stack & Mobile Development, Applied AI, LLMs, Software Testing, Automation, and Developer Tools.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">About</div>
+            <h2>Engineer, researcher, builder.</h2>
+          </div>
+          <p>
+            I connect practical software development with empirical software engineering research to build systems, tools, pipelines, and digital products with real-world value.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="icon">🧠</div>
+            <h3>Applied AI & LLMs</h3>
+            <p>Experience with machine learning, LLM-based pipelines, classification, data analysis, intelligent developer tools, and AI-assisted software engineering.</p>
+          </div>
+          <div class="card">
+            <div class="icon">📱</div>
+            <h3>Full-Stack & Mobile</h3>
+            <p>Experience building web, mobile, and API-based systems with Python, Java, JavaScript, TypeScript, Dart, Kotlin, Swift, Flutter, React Native, and PostgreSQL.</p>
+          </div>
+          <div class="card">
+            <div class="icon">🧪</div>
+            <h3>Software Testing</h3>
+            <p>Research and practice involving test automation, defect analysis, issue report analysis, software quality, empirical evaluation, and repository mining.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Experience</div>
+            <h2>Where I have worked.</h2>
+          </div>
+          <p>Software engineering, research, teaching, cybersecurity, industrial systems, and applied AI in international and Brazilian institutions.</p>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="date">Sep 2025 · Feb 2026</div>
+            <div>
+              <h3>International Research Intern, Applied AI and Software Engineering</h3>
+              <p class="org">Polytechnique Montréal · Montréal, QC</p>
+              <ul class="clean">
+                <li>Conducted international research in Software Engineering focused on Applied AI, Large Language Models, Software Testing, Mining Software Repositories, and defect-related issue analysis.</li>
+                <li>Designed and evaluated AI-based approaches to support the analysis, classification, and understanding of software defect reports in open-source repositories.</li>
+                <li>Worked with empirical software engineering methods, GitHub issue data, ML/LLM-based pipelines, and software quality evaluation.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="date">Feb 2022 · Aug 2025</div>
+            <div>
+              <h3>Software Engineer / R&D Project Leader, Full-Stack and Mobile Development</h3>
+              <p class="org">Centro de Pesquisa e Capacitação Tomorrow · Salvador, Brazil</p>
+              <ul class="clean">
+                <li>Led R&D initiatives focused on full-stack and mobile software engineering, translating state-of-the-art software engineering practices into reliable solutions for real users.</li>
+                <li>Designed and implemented web, mobile, and API-based solutions using modern software engineering practices.</li>
+                <li>Worked across the full development lifecycle, including requirements analysis, architecture decisions, implementation, testing, maintenance, and technical leadership.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="date">Jan 2024 · Jan 2025</div>
+            <div>
+              <h3>Software Engineering Instructor</h3>
+              <p class="org">Centro de Pesquisa e Capacitação Tomorrow · Federal University of Bahia</p>
+              <ul class="clean">
+                <li>Taught 30-hour computing courses in Java, Object-Oriented Programming, Django REST APIs, Alexa Skills Kit, Flutter, React Native, Agile Software Project Management, and Software Testing.</li>
+                <li>Created practical learning materials and guided students through programming, API development, mobile development, software engineering, and testing activities.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="date">May 2021 · Jan 2022</div>
+            <div>
+              <h3>Software Engineer</h3>
+              <p class="org">tecnoAtiva · Remote</p>
+              <ul class="clean">
+                <li>Developed and maintained cybersecurity-oriented software solutions for business protection.</li>
+                <li>Contributed to secure systems focused on reliability, maintainability, robustness, and protection against cyber threats.</li>
+                <li>Participated in technical analysis, implementation, debugging, testing, and system improvement.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="date">2017 · 2018</div>
+            <div>
+              <h3>Full-Stack Web Developer Intern</h3>
+              <p class="org">Atena Tecnologia · Salvador, Brazil</p>
+              <ul class="clean">
+                <li>Worked on the design, development, and deployment of web-based software solutions for a Supplementary Pension Entity.</li>
+                <li>Collaborated with cross-functional teams to build, maintain, and evolve a software product line focused on scalability, security, maintainability, and user-centered design.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Portfolio</div>
+            <h2>Selected projects.</h2>
+          </div>
+          <p>Systems, tools, and research infrastructure across full-stack development, repository mining, industrial monitoring, and dataset annotation.</p>
+        </div>
+
+        <div class="portfolio-carousel" aria-label="Featured project image carousel">
+          <div class="carousel-track" id="carouselTrack">
+            <article class="carousel-slide">
+              <div class="carousel-image-wrap">
+                <img src="./assets/project-grumpy.png" alt="GrumPy project preview" />
+              </div>
+              <div class="carousel-content">
+                <span class="carousel-label">SBES Tools · Repository Mining</span>
+                <h3>GrumPy</h3>
+                <p>Intelligent multi-miner for GitHub issue analysis, repository mining, dataset construction, and empirical software engineering workflows.</p>
+                <div class="pill-row">
+                  <span class="pill">GitHub Mining</span><span class="pill">Issue Analysis</span><span class="pill">Data Processing</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="carousel-slide">
+              <div class="carousel-image-wrap">
+                <img src="./assets/project-proap-prod.png" alt="Proap Prod project preview" />
+              </div>
+              <div class="carousel-content">
+                <span class="carousel-label">Full-Stack · University System</span>
+                <h3>Proap Prod</h3>
+                <p>University resource and scholarship management system for funding requests, approvals, scholarships, and institutional workflows.</p>
+                <div class="pill-row">
+                  <span class="pill">Full-Stack</span><span class="pill">Workflow Management</span><span class="pill">Database Design</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="carousel-slide">
+              <div class="carousel-image-wrap">
+                <img src="./assets/project-controlhome.png" alt="ControlHome project preview" />
+              </div>
+              <div class="carousel-content">
+                <span class="carousel-label">Product · Web System</span>
+                <h3>ControlHome</h3>
+                <p>Condominium management system for residents, administrators, services, communication, and operational workflows.</p>
+                <div class="pill-row">
+                  <span class="pill">Web Systems</span><span class="pill">User Management</span><span class="pill">Product Development</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="carousel-slide">
+              <div class="carousel-image-wrap">
+                <img src="./assets/project-medison.png" alt="Medison Software project preview" />
+              </div>
+              <div class="carousel-content">
+                <span class="carousel-label">Industrial Software</span>
+                <h3>Medison Software</h3>
+                <p>Monitoring and data visualization software for petroleum pipeline inspection, ultrasonic analysis, and hardware/software integration.</p>
+                <div class="pill-row">
+                  <span class="pill">Monitoring</span><span class="pill">Data Visualization</span><span class="pill">Industrial Systems</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="carousel-dots" id="carouselDots" aria-label="Carousel pagination"></div>
+          <div class="carousel-controls">
+            <button class="carousel-button" id="prevSlide" type="button" aria-label="Previous project">‹</button>
+            <button class="carousel-button" id="nextSlide" type="button" aria-label="Next project">›</button>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <article class="card project-card">
+            <div class="project-top">
+              <div class="project-meta"><span class="project-type">Research Tool · SBES Tools</span><span>⚡</span></div>
+              <h3 class="project-title">GrumPy</h3>
+            </div>
+            <div class="project-body">
+              <p><strong>Intelligent multi-miner for software repository analysis.</strong></p>
+              <p>GrumPy collects, analyzes, and structures software repository data, supporting issue analysis, repository mining, dataset construction, and empirical software engineering workflows.</p>
+              <div class="pill-row">
+                <span class="pill">Repository Mining</span><span class="pill">GitHub Issues</span><span class="pill">Data Processing</span><span class="pill">Empirical SE</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <div class="project-top">
+              <div class="project-meta"><span class="project-type">Python · GitHub API</span><span>⛏️</span></div>
+              <h3 class="project-title">gFetcher</h3>
+            </div>
+            <div class="project-body">
+              <p><strong>Python tool for mining GitHub issues and repository metadata.</strong></p>
+              <p>gFetcher collects and exports repository data such as issues, labels, comments, reactions, and events for software engineering studies and repository analytics.</p>
+              <div class="pill-row">
+                <span class="pill">Python</span><span class="pill">GitHub API</span><span class="pill">Automation</span><span class="pill">Dataset Construction</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <div class="project-top">
+              <div class="project-meta"><span class="project-type">Full-Stack · University System</span><span>🎓</span></div>
+              <h3 class="project-title">Proap Prod</h3>
+            </div>
+            <div class="project-body">
+              <p><strong>University resource and scholarship management system.</strong></p>
+              <p>A management platform for academic administrative workflows, funding requests, scholarships, resource allocation, approvals, and institutional processes.</p>
+              <div class="pill-row">
+                <span class="pill">Full-Stack</span><span class="pill">Workflows</span><span class="pill">Role-Based Access</span><span class="pill">Database Design</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <div class="project-top">
+              <div class="project-meta"><span class="project-type">Product · Web System</span><span>🏢</span></div>
+              <h3 class="project-title">ControlHome</h3>
+            </div>
+            <div class="project-body">
+              <p><strong>Condominium management system.</strong></p>
+              <p>ControlHome supports administrators and residents in operational workflows, centralizing communication, service requests, user management, and condominium-related processes.</p>
+              <div class="pill-row">
+                <span class="pill">Web Systems</span><span class="pill">Product Development</span><span class="pill">User Management</span><span class="pill">Operations</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <div class="project-top">
+              <div class="project-meta"><span class="project-type">Industrial Software</span><span>🛢️</span></div>
+              <h3 class="project-title">Medison Software</h3>
+            </div>
+            <div class="project-body">
+              <p><strong>Monitoring system for petroleum pipeline inspection.</strong></p>
+              <p>Software for industrial monitoring, petroleum pipeline inspection, data visualization, hardware/software integration, and ultrasonic wave field analysis.</p>
+              <div class="pill-row">
+                <span class="pill">Monitoring</span><span class="pill">Data Visualization</span><span class="pill">Real-Time Systems</span><span class="pill">Industrial Software</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <div class="project-top">
+              <div class="project-meta"><span class="project-type">Dataset Tooling</span><span>🏷️</span></div>
+              <h3 class="project-title">Labelor Studio</h3>
+            </div>
+            <div class="project-body">
+              <p><strong>Dataset review and annotation tool for Software Engineering studies.</strong></p>
+              <p>Labelor Studio supports dataset inspection, annotation workflows, review processes, and structured data export for software engineering research datasets.</p>
+              <div class="pill-row">
+                <span class="pill">Annotation</span><span class="pill">Data Review</span><span class="pill">Research Infrastructure</span><span class="pill">Web Tooling</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Education</div>
+            <h2>Academic background.</h2>
+          </div>
+          <p>Computer Science education at UFBA, with research focused on Software Engineering, Applied AI, repository mining, and software quality.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="icon">🎓</div>
+            <h3>PhD in Computer Science</h3>
+            <p>Federal University of Bahia (UFBA). Research focus: Applied AI in Software Engineering, LLMs, Mining Software Repositories, Software Testing, Defect Classification, Issue Report Analysis, and Automated Bug Reproduction.</p>
+          </div>
+          <div class="card">
+            <div class="icon">📘</div>
+            <h3>Master in Computer Science</h3>
+            <p>Federal University of Bahia (UFBA). Focused on Software Engineering, repository mining, issue tracking systems, empirical software engineering, and software maintenance.</p>
+          </div>
+          <div class="card">
+            <div class="icon">💻</div>
+            <h3>Bachelor's Degree in Computer Science</h3>
+            <p>Federal University of Bahia (UFBA). Foundation in software development, programming, algorithms, systems, research, and software engineering practice.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Publications</div>
+            <h2>Selected research.</h2>
+          </div>
+          <p>Selected publications and awards connected to software testing, issue analysis, repository mining, empirical software engineering, and industrial systems.</p>
+        </div>
+
+        <div class="grid-2">
+          <article class="publication">
+            <div class="pub-year">2024</div>
+            <div>
+              <p class="pub-title">Issue Labeling Dynamics in Open-Source Projects: A Comprehensive Analysis</p>
+              <p class="pub-venue">SBCARS</p>
+            </div>
+          </article>
+          <article class="publication">
+            <div class="pub-year">2024</div>
+            <div>
+              <p class="pub-title">Unleashing the Future of Smart Homes: A Revelation of Cutting-Edge Distributed Architecture</p>
+              <p class="pub-venue">SBCARS</p>
+            </div>
+          </article>
+          <article class="publication">
+            <div class="pub-year">2023</div>
+            <div>
+              <p class="pub-title">Hearing the voice of experts: Unveiling Stack Exchange communities’ knowledge of test smells</p>
+              <p class="pub-venue">CHASE</p>
+            </div>
+          </article>
+          <article class="publication">
+            <div class="pub-year">2021</div>
+            <div>
+              <p class="pub-title">GrumPy: An automated approach to simplify issue data analysis for newcomers</p>
+              <p class="pub-venue">SBES</p>
+            </div>
+          </article>
+          <article class="publication">
+            <div class="pub-year">2021</div>
+            <div>
+              <p class="pub-title">Label it be!: A large-scale study of issue labeling in modern open-source repositories</p>
+              <p class="pub-venue">cs.SE</p>
+            </div>
+          </article>
+          <article class="publication">
+            <div class="pub-year">2017</div>
+            <div>
+              <p class="pub-title">A Mechatronic Platform for Measurement and Study of Ultrasonic Wave Fields</p>
+              <p class="pub-venue">SPE</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-card">
+          <div>
+            <div class="section-kicker">Contact</div>
+            <h2>Let’s build something reliable, useful, and intelligent.</h2>
+            <p>
+              I am currently interested in Software Engineering, Full-Stack Engineering, Mobile Engineering, Applied AI Engineering, LLM Engineering, Research Engineering, QA Automation/SDET, and Developer Tools roles.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="mailto:motajoselito@gmail.com">Email me</a>
+              <a class="btn" href="https://github.com/joselitojunior94" target="_blank" rel="noreferrer">GitHub</a>
+              <a class="btn" href="https://www.linkedin.com/in/joselito-j%C3%BAnior-82b742218" target="_blank" rel="noreferrer">LinkedIn</a>
+            </div>
+          </div>
+          <img class="mini-avatar" src="./assets/mini-cyber-joselito.png" alt="Cyberpunk illustration of Joselito Júnior" />
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Joselito Júnior. Built with HTML, CSS, and a cyberpunk developer vibe.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const track = document.getElementById("carouselTrack");
+    const slides = Array.from(document.querySelectorAll(".carousel-slide"));
+    const dotsContainer = document.getElementById("carouselDots");
+    const prevButton = document.getElementById("prevSlide");
+    const nextButton = document.getElementById("nextSlide");
+    let currentSlide = 0;
+    let carouselTimer;
+
+    slides.forEach((_, index) => {
+      const dot = document.createElement("button");
+      dot.className = "carousel-dot";
+      dot.type = "button";
+      dot.setAttribute("aria-label", `Go to project ${index + 1}`);
+      dot.addEventListener("click", () => goToSlide(index));
+      dotsContainer.appendChild(dot);
+    });
+
+    const dots = Array.from(document.querySelectorAll(".carousel-dot"));
+
+    function updateCarousel() {
+      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+      dots.forEach((dot, index) => dot.classList.toggle("active", index === currentSlide));
+    }
+
+    function goToSlide(index) {
+      currentSlide = (index + slides.length) % slides.length;
+      updateCarousel();
+      restartCarouselTimer();
+    }
+
+    function nextSlide() {
+      goToSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+      goToSlide(currentSlide - 1);
+    }
+
+    function restartCarouselTimer() {
+      clearInterval(carouselTimer);
+      carouselTimer = setInterval(nextSlide, 6500);
+    }
+
+    nextButton.addEventListener("click", nextSlide);
+    prevButton.addEventListener("click", prevSlide);
+    updateCarousel();
+    restartCarouselTimer();
+  </script>
+</body>
+</html>
